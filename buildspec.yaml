@@ -1,0 +1,76 @@
+version: 0.2
+
+# run-as: Linux-user-name
+
+env:
+  # shell: shell-tag
+  # variables:
+  #   FUNC_PREFIX: "dev"
+    # key: "value"
+
+  secrets-manager:
+    STRIPE_SECRET_KEY: "dev/payment-hub/secret-key:DEV_STRIPE_SECRET_KEY"
+  # git-credential-helper: no | yes
+
+# batch:
+#   fast-fail: true
+
+phases:
+  install:
+    # run-as: "admin"
+    # on-failure: ABORT
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Installing dependencies..."
+      - npm ci
+    # finally:
+    #   - command
+    #   - command
+  # pre_build:
+  #   run-as: Linux-user-name
+  #   on-failure: ABORT | CONTINUE
+  #   commands:
+  #     - command
+  #     - command
+  #   finally:
+  #     - command
+  #     - command
+  build:
+    commands:
+      - STRIPE_SECRET_KEY=$STRIPE_SECRET_KEY && npx serverless deploy
+# reports:
+#   report-group-name-or-arn:
+#     files:
+#       - location
+#       - location
+#     base-directory: location
+#     discard-paths: no | yes
+#     file-format: report-format
+# artifacts:
+#   files:
+#     - location
+#     - location
+#   name: artifact-name
+#   discard-paths: no | yes
+#   base-directory: location
+#   exclude-paths: excluded paths
+#   enable-symlinks: no | yes
+#   s3-prefix: prefix
+#   secondary-artifacts:
+#     artifactIdentifier:
+#       files:
+#         - location
+#         - location
+#       name: secondary-artifact-name
+#       discard-paths: no | yes
+#       base-directory: location
+#     artifactIdentifier:
+#       files:
+#         - location
+#         - location
+#       discard-paths: no | yes
+#       base-directory: location
+cache:
+  paths:
+    - node_modules
