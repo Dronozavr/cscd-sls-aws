@@ -2,7 +2,7 @@ version: 0.2
 
 # run-as: Linux-user-name
 
-env:
+# env: 
   # shell: shell-tag
   # variables:
   #   FUNC_PREFIX: "dev"
