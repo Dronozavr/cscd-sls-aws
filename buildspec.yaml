@@ -8,8 +8,8 @@ env:
   #   FUNC_PREFIX: "dev"
     # key: "value"
 
-  secrets-manager:
-    STRIPE_SECRET_KEY: "dev/payment-hub/secret-key:DEV_STRIPE_SECRET_KEY"
+  # secrets-manager:
+  #   STRIPE_SECRET_KEY: "dev/payment-hub/secret-key:DEV_STRIPE_SECRET_KEY"
   # git-credential-helper: no | yes
 
 # batch:
