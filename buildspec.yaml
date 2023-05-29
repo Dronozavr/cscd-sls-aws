@@ -38,7 +38,7 @@ phases:
   #     - command
   build:
     commands:
-      - STRIPE_SECRET_KEY=$STRIPE_SECRET_KEY && npx serverless deploy
+      - npx serverless deploy
 # reports:
 #   report-group-name-or-arn:
 #     files:
